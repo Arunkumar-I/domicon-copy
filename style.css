@@ -270,7 +270,8 @@ nav .container {
 
 /* Video Showcase */
 .showcase {
-    margin-top: 6rem;
+    margin: 6rem auto 0;
+    max-width: 800px;
     position: relative;
     border-radius: 24px;
     overflow: hidden;
@@ -280,7 +281,8 @@ nav .container {
     box-shadow: 0 0 100px rgba(232, 124, 65, 0.05);
 }
 
-.showcase img {
+.showcase img,
+.showcase video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -813,20 +815,25 @@ footer {
     }
 
     .video-grid {
-        flex-direction: column;
-        gap: 3rem;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 0.6rem;
         margin-top: 3rem;
+        padding: 0 0.5rem;
         perspective: none;
+        align-items: center;
+        justify-content: center;
     }
 
     .video-card {
-        width: 100%;
-        max-width: 340px;
+        width: calc(33.33% - 0.6rem);
+        min-width: 0;
+        flex-shrink: 1;
     }
 
     .video-card:nth-child(n) {
         transform: none !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
     }
 
     .bento-grid {
