@@ -406,8 +406,48 @@ nav .container {
     text-align: center;
     position: relative;
     padding: 12rem 0;
-    background: radial-gradient(circle at center, rgba(232, 124, 65, 0.08) 0%, transparent 60%);
+    background: #0D0B0A;
     overflow: hidden;
+}
+
+.globe-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    perspective: 1000px;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.globe-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(232, 124, 65, 0.2);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+}
+
+.globe-circle:nth-child(1) { transform: rotateY(0deg); animation: rotate-globe 10s linear infinite; }
+.globe-circle:nth-child(2) { transform: rotateY(36deg); animation: rotate-globe 10s linear infinite 1s; }
+.globe-circle:nth-child(3) { transform: rotateY(72deg); animation: rotate-globe 10s linear infinite 2s; }
+.globe-circle:nth-child(4) { transform: rotateY(108deg); animation: rotate-globe 10s linear infinite 3s; }
+.globe-circle:nth-child(5) { transform: rotateY(144deg); animation: rotate-globe 10s linear infinite 4s; }
+
+/* Horizontal rings */
+.globe-circle:nth-child(6) { transform: rotateX(90deg) scale(0.9); border-color: rgba(232, 124, 65, 0.1); }
+.globe-circle:nth-child(7) { transform: rotateX(90deg) translateZ(100px) scale(0.7); border-color: rgba(232, 124, 65, 0.05); }
+.globe-circle:nth-child(8) { transform: rotateX(90deg) translateZ(-100px) scale(0.7); border-color: rgba(232, 124, 65, 0.05); }
+
+@keyframes rotate-globe {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
 }
 
 .revolution::before {
